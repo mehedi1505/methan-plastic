@@ -9,7 +9,7 @@ require('dotenv').config()
 
 
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "https://shimmering-strudel-8bac69.netlify.app",
     credentials: true,
     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
 }))

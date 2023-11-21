@@ -20,9 +20,10 @@ class authControllers{
                     role: checkAdmin.role
                    })
                    res.cookie('accessToken',token,{
-                    httpOnly: true,
-                    secure: process.env.NODE_ENV === "production",
-                    sameSite: "strict",
+                    httpOnly:true,
+                    secure:true,
+                    sameSite:"none",
+                    domain: "https://shimmering-strudel-8bac69.netlify.app/",
                     expires: new Date(Date.now() + process.env.COOKIE_EXP * 24 * 60 * 60 * 1000)
                    })
                    responseReturn(res, 200, { token, success: 'Login Success' })

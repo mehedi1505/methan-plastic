@@ -52,15 +52,4 @@ app.use('/api',require("./routes/dashboard/payroll/payrollRoutes"))
 
 dbConnect();
 
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(__dirname,"../dashboard/build")));
-    app.get('*',(req,res)=>{
-        res.sendFile(path.resolve(__dirname,'../','dashboard','build','index.html'))
-    })
-    }else{
-        app.get("/",(req,res)=>{
-    res.send("Api running")
-        })
-    }
-
 app.listen(port, () => console.log(`Server is running on port ${port}!`))

@@ -1,5 +1,5 @@
 import axios from 'axios'
 const api = axios.create({
-    baseURL:'http://localhost:5000/api'
+    baseURL:'https://methan-plastic.onrender.com/api'
 })
 export default api;

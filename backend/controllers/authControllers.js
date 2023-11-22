@@ -15,7 +15,18 @@ class authControllers{
            if(checkAdmin != null){
                 const match = await bcrypt.compare( password, checkAdmin.password)
                 if(match){
-            
+                  const token = await createToken({
+                    id: checkAdmin._id,
+                    role: checkAdmin.role
+                   })
+                   res.cookie('accessToken',token,{
+                    httpOnly:true,
+                    secure:true,
+                    sameSite:"false",
+                    domain: "https://shimmering-strudel-8bac69.netlify.app",
+                    expires: new Date(Date.now() + process.env.COOKIE_EXP * 24 * 60 * 60 * 1000)
+
+                   })
                    responseReturn(res, 200, {success: 'Login Success' })
 
                 }else{

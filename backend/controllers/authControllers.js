@@ -20,9 +20,6 @@ class authControllers{
                     role: checkAdmin.role
                    })
                    res.cookie('accessToken',token,{
-                    httpOnly:true,
-                    secure:true,
-                    sameSite:"false",
                     expires: new Date(Date.now() + process.env.COOKIE_EXP * 24 * 60 * 60 * 1000)
 
                    })

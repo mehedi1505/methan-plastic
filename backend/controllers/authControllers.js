@@ -16,7 +16,7 @@ class authControllers{
                 const match = await bcrypt.compare( password, checkAdmin.password)
                 if(match){
             
-                   responseReturn(res, 200, { token, success: 'Login Success' })
+                   responseReturn(res, 200, {success: 'Login Success' })
 
                 }else{
                     responseReturn(res,404,{ error:'Password Wrong!' })  

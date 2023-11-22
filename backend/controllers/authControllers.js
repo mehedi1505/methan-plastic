@@ -23,7 +23,6 @@ class authControllers{
                     httpOnly:true,
                     secure:true,
                     sameSite:"false",
-                    domain: "https://shimmering-strudel-8bac69.netlify.app",
                     expires: new Date(Date.now() + process.env.COOKIE_EXP * 24 * 60 * 60 * 1000)
 
                    })

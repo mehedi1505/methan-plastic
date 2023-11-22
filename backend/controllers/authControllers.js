@@ -23,7 +23,7 @@ class authControllers{
                     expires: new Date(Date.now() + process.env.COOKIE_EXP * 24 * 60 * 60 * 1000)
 
                    })
-                   responseReturn(res, 200, {success: 'Login Success' })
+                   responseReturn(res, 200, {token,success: 'Login Success' })
 
                 }else{
                     responseReturn(res,404,{ error:'Password Wrong!' })  

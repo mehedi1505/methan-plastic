@@ -96,7 +96,7 @@ class authControllers{
             responseReturn(res, 500, { error: 'Internal server error' }) 
         }
     }
-    get_user = async(req, res)=>{
+    get_user_info = async(req, res)=>{
         const { id, role } = req
 
         try {

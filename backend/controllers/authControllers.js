@@ -9,21 +9,20 @@ const jwt = require('jsonwebtoken')
 
 class authControllers{
     admin_login = async(req, res)=>{
-        const { email, password } = req.body
+                const { email, password } = req.body
         try {
             const checkAdmin = await adminModel.findOne({email}).select('+password')
            if(checkAdmin != null){
                 const match = await bcrypt.compare( password, checkAdmin.password)
                 if(match){
-                  const token = await createToken({
+                   const token = await createToken({
                     id: checkAdmin._id,
                     role: checkAdmin.role
                    })
                    res.cookie('accessToken',token,{
                     expires: new Date(Date.now() + process.env.COOKIE_EXP * 24 * 60 * 60 * 1000)
-
                    })
-                   responseReturn(res, 200, {token,success: 'Login Success' })
+                   responseReturn(res, 200, { token, success: 'Login Success' })
 
                 }else{
                     responseReturn(res,404,{ error:'Password Wrong!' })  
